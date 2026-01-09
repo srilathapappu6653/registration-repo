@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Registration</title>
+</head>
+<body>
+
+<h2>Event Registration Form</h2>
+
+<form id="registrationForm">
+    <label>
+        Full Name:
+        <input type="text" id="name" required>
+    </label>
+    <br><br>
+
+    <label>
+        Email Address:
+        <input type="email" id="email" required>
+    </label>
+    <br><br>
+
+    <label>
+        Select Event:
+        <select id="event" required>
+            <option value="">--Choose an event--</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Hackathon">Hackathon</option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const selectedEvent = document.getElementById("event").value;
+
+        document.getElementById("message").textContent =
+            "Thank you, " + name + "! You are registered for the " + selectedEvent + ".";
+        
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
